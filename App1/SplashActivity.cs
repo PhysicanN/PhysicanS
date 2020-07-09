@@ -5,9 +5,10 @@ using Android.Support.V7.App;
 using System.Threading.Tasks;
 using Physican;
 using Android.Content.PM;
+using App1;
 namespace Physican.SplashScreen
 {
-    [Activity(Theme = "@style/AppTheme", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Theme = "@style/AppTheme.Splash", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class SplashActivity : AppCompatActivity
     {
         public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
@@ -18,6 +19,7 @@ namespace Physican.SplashScreen
         {
             base.OnResume();
             Task startupWork = new Task(() => { SimulateStartup(); });
+            startupWork.Start();
         }
         public override void OnBackPressed()
         {
